@@ -47,6 +47,7 @@ export async function POST(req, res) {
     const result = await db.collection("users").insertOne({
       mobileNumber,
       password: hashedPassword,
+      name,
     });
 
     const token = jwt.sign({ id: result.insertedId }, secretKey);
@@ -78,7 +79,7 @@ export async function POST(req, res) {
     );
     return NextResponse.json(
       {
-        // token,
+        token,
         userData: {
           mobileNumber,
           userId: result.insertedId,

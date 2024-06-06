@@ -95,7 +95,7 @@ export async function POST(req, res) {
         // secure: true,
       }
     );
-
+    console.log("oi876trfghjk", user);
     return NextResponse.json(
       {
         userData: {
